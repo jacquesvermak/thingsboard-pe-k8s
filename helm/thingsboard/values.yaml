@@ -294,9 +294,17 @@ redis:
     persistence:
       enabled: false
 
+# kafka:
+#   persistence:
+#     enabled: false
+#   zookeeper:
+#     persistence:
+#       enabled: false
 kafka:
-  persistence:
-    enabled: false
   zookeeper:
     persistence:
       enabled: false
+    containerPorts:
+      client: 2181
+
+
