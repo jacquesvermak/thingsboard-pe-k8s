@@ -19,7 +19,7 @@ set -e
 
 kubectl apply -f tb-namespace.yml || echo
 
-kubectl config set-context --current --namespace=thingsboard
+kubectl config set-context --current --namespace=thingsboard-pe
 
 kubectl apply -f zookeeper.yml
 
