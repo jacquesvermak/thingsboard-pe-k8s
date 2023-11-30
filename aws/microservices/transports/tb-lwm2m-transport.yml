@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-lwm2m-transport-config
-  namespace: thingsboard
+  namespace: thingsboard-pe
   labels:
     name: tb-lwm2m-transport-config
 data:
@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-lwm2m-transport
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   serviceName: "tb-lwm2m-transport"
   podManagementPolicy: Parallel

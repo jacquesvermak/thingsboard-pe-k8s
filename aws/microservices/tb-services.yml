@@ -18,7 +18,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-node
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   serviceName: tb-node
   replicas: 1
@@ -154,7 +154,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-node
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   type: ClusterIP
   selector:
@@ -167,7 +167,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-integration-executor
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   serviceName: tb-integration-executor
   replicas: 1
@@ -270,7 +270,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-integration-executor
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   type: ClusterIP
   selector:
@@ -283,7 +283,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tb-web-ui
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   replicas: 2
   selector:
@@ -349,7 +349,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-web-ui
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   type: ClusterIP
   selector:
@@ -362,7 +362,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tb-js-executor
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   replicas: 5
   selector:
@@ -410,7 +410,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tb-web-report
-  namespace: thingsboard
+  namespace: thingsboard-pe-pe
 spec:
   replicas: 1
   selector:
@@ -465,7 +465,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-web-report
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   type: ClusterIP
   selector:
