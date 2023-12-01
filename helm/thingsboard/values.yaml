@@ -260,14 +260,15 @@ cassandra:
   enabled: false
   replicaCount: 1
   dbUser:
-    password: setplease
+    password: cassandra
 
 postgresql-ha:
   nameOverride: pg
   postgresql:
     database: thingsboard
     replicaCount: 1
-    password: setplease
+    username: postgres
+    password: VF8sjO1yR68W1LxPzwoh
     repmgrPassword: setplease
   postgresqlImage:
     tag: 12
@@ -275,6 +276,7 @@ postgresql-ha:
     adminPassword: setplease
     replicaCount: 1
     useLoadBalancing: false
+    containerPort: 5432
   pgpoolImage:
     tag: 4
 
@@ -282,7 +284,7 @@ redis:
   # Set architecture to either standalone or replication
   architecture: standalone
   auth:
-    password: setplease
+    password: redis
   master:
     kind: Deployment
     persistence:
