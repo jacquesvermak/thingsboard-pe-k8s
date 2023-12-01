@@ -88,9 +88,7 @@ spec:
           - name: SPRING_DATASOURCE_USERNAME
             value: postgres
           - name: SPRING_DATASOURCE_PASSWORD
-            value: VF8sjO1yR68W1LxPzwoh
-          - name: SPRING_DATASOURCE_URL
-            value: jdbc:postgresql://localhost:5432/thingsboard  
+            value: VF8sjO1yR68W1LxPzwoh 
           envFrom:
           - configMapRef:
               name: {{ .Release.Name }}-node-db-config
