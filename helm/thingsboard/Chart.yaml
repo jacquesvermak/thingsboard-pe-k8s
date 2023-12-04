@@ -31,7 +31,7 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     condition: cassandra.enabled
   - name: kafka
-    version: "26.4.3"
+    version: "25.3.4"
     repository: https://charts.bitnami.com/bitnami
   - name: redis
     version: "18.4.0"
