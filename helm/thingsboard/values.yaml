@@ -303,6 +303,11 @@ redis:
 #     persistence:
 #       enabled: false
 kafka:
+  replicationFactor: 3
+  offsetsTopicReplicationFactor: 3
+  service:
+    ports:
+      client: 9092
   zookeeper:
     persistence:
       enabled: false
