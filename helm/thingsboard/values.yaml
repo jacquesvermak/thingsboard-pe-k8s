@@ -265,6 +265,7 @@ cassandra:
 postgresql-ha:
   nameOverride: pg
   postgresql:
+    containerPort: 5432
     database: thingsboard
     replicaCount: 1
     username: postgres
@@ -276,7 +277,6 @@ postgresql-ha:
     adminPassword: setplease
     replicaCount: 1
     useLoadBalancing: false
-    containerPort: 5432
   pgpoolImage:
     tag: 4
 
