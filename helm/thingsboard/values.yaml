@@ -257,7 +257,7 @@ cassandra:
   # Database can be either postgres or hybrid (entities in postgres and timeseries in cassandra)
   # for an postgresql database set cassandra.enabled as false
   # for an hybrid database set cassandra.enabled as true
-  enabled: false
+  enabled: true
   replicaCount: 1
   dbUser:
     password: cassandra
