@@ -52,6 +52,8 @@ node:
   replicaCount: 1
   image:
     repository: thingsboard/tb-pe-node
+    server: docker.io
+    tag: "3.4.3PE"
     # Overrides the global image values
     #server: docker.io
     #pullPolicy: Always
@@ -68,7 +70,7 @@ node:
     #   - ALL
     # readOnlyRootFilesystem: true
   runAsNonRoot: true
-    # runAsUser: 1000
+  runAsUser: 1000
   service:
     type: ClusterIP
     port: 8080
@@ -98,6 +100,8 @@ jsexecutor:
   kind: Deployment
   image:
     repository: thingsboard/tb-pe-js-executor
+    server: docker.io
+    tag: "3.4.3PE"
     # Overrides the global image values
     #server: docker.io
     #pullPolicy: Always
@@ -122,6 +126,8 @@ mqtt:
   kind: StatefulSet
   image:
     repository: thingsboard/tb-pe-mqtt-transport
+    server: docker.io
+    tag: "3.4.3PE"
     # Overrides the global image values
     #server: docker.io
     #pullPolicy: Always
@@ -157,6 +163,8 @@ http:
   kind: StatefulSet
   image:
     repository: thingsboard/tb-pe-http-transport
+    server: docker.io
+    tag: "3.4.3PE"
     # Overrides the global image values
     #server: docker.io
     #pullPolicy: Always
@@ -189,6 +197,8 @@ coap:
   kind: StatefulSet
   image:
     repository: thingsboard/tb-pe-coap-transport
+    server: docker.io
+    tag: "3.4.3PE"
     # Overrides the global image values
     #server: docker.io
     #pullPolicy: Always
@@ -221,6 +231,8 @@ webui:
   kind: Deployment
   image:
     repository: thingsboard/tb-pe-web-ui
+    server: docker.io
+    tag: "3.4.3PE"
     # Overrides the global image values
     #server: docker.io
     #pullPolicy: Always
@@ -236,6 +248,48 @@ webui:
   service:
     type: ClusterIP
     port: 8084
+  resources: {}
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
+lwm2m-transport:
+  kind: Deployment
+  image:
+    repository: thingsboard/tb-pe-lwm2m-transport
+    server: docker.io
+    tag: "3.4.3PE"
+  replicaCount: 2
+  podAnnotations: {}
+  podSecurityContext: {}
+  securityContext: {}
+  resources: {}
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 100
+    targetCPUUtilizationPercentage: 80
+    # targetMemoryUtilizationPercentage: 80
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+  
+snmp-transport:    
+  kind: StatefulSet
+  image:
+     repository: thingsboard/tb-pe-snmp-transport
+     server: docker.io
+     tag: "3.4.3PE" 
+  replicaCount: 2
+  podAnnotations: {}
+  podSecurityContext: {} 
+  securityContext: {}
   resources: {}
   autoscaling:
     enabled: false
