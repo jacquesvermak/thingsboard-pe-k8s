@@ -92,10 +92,10 @@ spec:
           #       key: license-key
           # - name: TB_LICENSE_INSTANCE_DATA_FILE
           #   value: "/usr/share/thingsboard/bin/instance-license-$(TB_SERVICE_ID).data"
-          - name: SPRING_DATASOURCE_USERNAME
-            value: postgres
-          - name: SPRING_DATASOURCE_PASSWORD
-            value: VF8sjO1yR68W1LxPzwoh 
+          # - name: SPRING_DATASOURCE_USERNAME
+          #   value: postgres
+          # - name: SPRING_DATASOURCE_PASSWORD
+          #   value: VF8sjO1yR68W1LxPzwoh 
           envFrom:
           - configMapRef:
               name: {{ .Release.Name }}-node-db-config

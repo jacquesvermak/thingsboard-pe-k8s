@@ -17,10 +17,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tb-snmp-transport-config
+  name: thingsboard-snmp-transport-config
   namespace: thingsboard
   labels:
-    name: tb-snmp-transport-config
+    name: thingsboard-snmp-transport-config
 data:
   conf: |
     export JAVA_OPTS="$JAVA_OPTS -Xlog:gc*,heap*,age*,safepoint=debug:file=/var/log/tb-snmp-transport/${TB_SERVICE_ID}-gc.log:time,uptime,level,tags:filecount=10,filesize=10M"
@@ -52,19 +52,19 @@ data:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: tb-snmp-transport
+  name: thingsboard-snmp-transport
   namespace: thingsboard
 spec:
-  serviceName: "tb-snmp-transport"
+  serviceName: "thingsboard-snmp-transport"
   podManagementPolicy: Parallel
   replicas: 2
   selector:
     matchLabels:
-      app: tb-snmp-transport
+      app: thingsboard-snmp-transport
   template:
     metadata:
       labels:
-        app: tb-snmp-transport
+        app: thingsboard-snmp-transport
     spec:
       affinity:
         podAntiAffinity:
@@ -74,21 +74,21 @@ spec:
                   - key: "app"
                     operator: In
                     values:
-                      - tb-snmp-transport
+                      - thingsboard-snmp-transport
               topologyKey: "kubernetes.io/hostname"
       volumes:
-        - name: tb-snmp-transport-config
+        - name: thingsboard-snmp-transport-config
           configMap:
-            name: tb-snmp-transport-config
+            name: thingsboard-snmp-transport-config
             items:
               - key: conf
-                path:  tb-snmp-transport.conf
+                path:  thingsboard-snmp-transport.conf
               - key: logback
                 path:  logback.xml
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-snmp-transport:3.4.1PE
+          image: thingsboard/tb-pe-snmp-transport:3.4.3PE
           resources:
             limits:
               cpu: "1000m"
@@ -110,4 +110,4 @@ spec:
                 name: tb-kafka-config
           volumeMounts:
             - mountPath: /config
-              name: tb-snmp-transport-config
+              name: thingsboard-snmp-transport-config
