@@ -106,7 +106,7 @@ spec:
           resources:
             {{- toYaml .Values.mqtt.resources | nindent 12 }}
       volumes:
-        - name: {{ .Release.Name }}-mqtt-transport-config
+        - name: thingsboard-mqtt-transport-config
           configMap:
             name: {{ .Release.Name }}-mqtt-transport-config
             items:
