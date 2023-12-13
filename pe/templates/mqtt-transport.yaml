@@ -94,15 +94,15 @@ spec:
               name: mqtt-certs
               readOnly: true
           {{- end }}
-          readinessProbe:
-            periodSeconds: 20
-            tcpSocket:
-              port: {{ .Values.mqtt.port.number }}
-          livenessProbe:
-            initialDelaySeconds: 120
-            periodSeconds: 20
-            tcpSocket:
-              port: {{ .Values.mqtt.port.number }}
+          # readinessProbe:
+          #   periodSeconds: 20
+          #   tcpSocket:
+          #     port: {{ .Values.mqtt.port.number }}
+          # livenessProbe:
+          #   initialDelaySeconds: 120
+          #   periodSeconds: 20
+          #   tcpSocket:
+          #     port: {{ .Values.mqtt.port.number }}
           resources:
             {{- toYaml .Values.mqtt.resources | nindent 12 }}
       volumes:

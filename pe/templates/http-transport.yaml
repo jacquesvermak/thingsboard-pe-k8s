@@ -74,15 +74,15 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: {{ .Release.Name }}-http-transport-config
-          readinessProbe:
-            periodSeconds: 20
-            tcpSocket:
-              port: {{ .Values.http.port.number }}
-          livenessProbe:
-            initialDelaySeconds: 120
-            periodSeconds: 20
-            tcpSocket:
-              port: {{ .Values.http.port.number }}
+          # readinessProbe:
+          #   periodSeconds: 20
+          #   tcpSocket:
+          #     port: {{ .Values.http.port.number }}
+          # livenessProbe:
+          #   initialDelaySeconds: 120
+          #   periodSeconds: 20
+          #   tcpSocket:
+          #     port: {{ .Values.http.port.number }}
           resources:
             {{- toYaml .Values.http.resources | nindent 12 }}
       volumes:
