@@ -18,10 +18,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-redis-config
-  namespace: thingsboard-pe
+  namespace: thingsboard
   labels:
     name: tb-redis-config
 data:
   CACHE_TYPE: redis
   # Make sure that the value does not contain the port (:6379).
-  REDIS_HOST: YOUR_REDIS_ENDPOINT_URL_WITHOUT_PORT
+  REDIS_HOST: localhost:6379

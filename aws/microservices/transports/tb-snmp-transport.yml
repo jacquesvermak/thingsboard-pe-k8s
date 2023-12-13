@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-snmp-transport-config
-  namespace: thingsboard-pe
+  namespace: thingsboard
   labels:
     name: tb-snmp-transport-config
 data:
@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-snmp-transport
-  namespace: thingsboard-pe
+  namespace: thingsboard
 spec:
   serviceName: "tb-snmp-transport"
   podManagementPolicy: Parallel
@@ -88,7 +88,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-snmp-transport:3.6.1PE
+          image: thingsboard/tb-pe-snmp-transport:3.4.3PE
           resources:
             limits:
               cpu: "1000m"

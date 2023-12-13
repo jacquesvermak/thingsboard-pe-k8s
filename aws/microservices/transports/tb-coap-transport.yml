@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-coap-transport-config
-  namespace: thingsboard-pe
+  namespace: thingsboard
   labels:
     name: tb-coap-transport-config
 data:
@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-coap-transport
-  namespace: thingsboard-pe
+  namespace: thingsboard
 spec:
   serviceName: "tb-coap-transport"
   podManagementPolicy: Parallel
@@ -88,7 +88,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-coap-transport:3.6.1PE
+          image: thingsboard/tb-pe-coap-transport:3.4.3PE
           ports:
             - containerPort: 5683
               name: coap

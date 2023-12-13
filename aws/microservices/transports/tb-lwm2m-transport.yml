@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-lwm2m-transport-config
-  namespace: thingsboard-pe
+  namespace: thingsboard
   labels:
     name: tb-lwm2m-transport-config
 data:
@@ -88,7 +88,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-lwm2m-transport:3.6.1PE
+          image: thingsboard/tb-pe-lwm2m-transport:3.4.3PE
           ports:
             - containerPort: 5685
               name: lwm2m
