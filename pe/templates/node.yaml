@@ -85,6 +85,14 @@ spec:
             value: "{{ .Values.redis.auth.password }}"
           - name: TB_LICENSE_SECRET
             value: DUtNSoGiBExZvHAufHEWHmDQ
+          - name: SPRING_DATASOURCE_URL
+            value: jdbc:postgresql://thingsboard-pg-pgpool:5432/thingsboard 
+          - name: SPRING_DRIVER_CLASS_NAME
+            value: org.postgresql.Driver 
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: VF8sjO1yR68W1LxPzwoh   
+          - name: SPRING_DATASOURCE_USERNAME
+            value: postgre
           # - name: TB_LICENSE_SECRET
           #   valueFrom:
           #     secretKeyRef:
