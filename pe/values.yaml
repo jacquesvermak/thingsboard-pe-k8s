@@ -258,49 +258,7 @@ webui:
   nodeSelector: {}
   tolerations: []
   affinity: {}
-
-lwm2m-transport:
-  kind: Deployment
-  image:
-    repository: thingsboard/tb-pe-lwm2m-transport
-    server: docker.io
-    tag: "3.4.3PE"
-  replicaCount: 2
-  podAnnotations: {}
-  podSecurityContext: {}
-  securityContext: {}
-  resources: {}
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 100
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
-  nodeSelector: {}
-  tolerations: []
-  affinity: {}
   
-snmp-transport:    
-  kind: StatefulSet
-  image:
-     repository: thingsboard/tb-pe-snmp-transport
-     server: docker.io
-     tag: "3.4.3PE" 
-  replicaCount: 2
-  podAnnotations: {}
-  podSecurityContext: {} 
-  securityContext: {}
-  resources: {}
-  autoscaling:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 100
-    targetCPUUtilizationPercentage: 80
-    # targetMemoryUtilizationPercentage: 80
-  nodeSelector: {}
-  tolerations: []
-  affinity: {}
-
 cassandraInitDB:
   keyspace: thingsboard
   replication:
@@ -331,6 +289,7 @@ postgresql-ha:
     adminPassword: setplease
     replicaCount: 1
     useLoadBalancing: false
+    database: thingsboard
   pgpoolImage:
     tag: 4
 
