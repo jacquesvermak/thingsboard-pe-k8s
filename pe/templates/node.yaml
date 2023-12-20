@@ -92,7 +92,7 @@ spec:
           - name: SPRING_DATASOURCE_PASSWORD
             value: VF8sjO1yR68W1LxPzwoh   
           - name: SPRING_DATASOURCE_USERNAME
-            value: postgre
+            value: postgres
           # - name: TB_LICENSE_SECRET
           #   valueFrom:
           #     secretKeyRef:
