@@ -84,7 +84,13 @@ spec:
           - name: REDIS_PASSWORD
             value: "{{ .Values.redis.auth.password }}"
           - name: TB_LICENSE_SECRET
-            value: DUtNSoGiBExZvHAufHEWHmDQ
+            value: OBWS9h3P1bqGpRveNxbfZ58l
+          - name: SPRING_DATASOURCE_USERNAME
+            value: postgres
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: VF8sjO1yR68W1LxPzwoh
+          - name: SPRING_DATASOURCE_URL
+            value: jdbc:postgresql://thingsboard-pg-postgresql-0.thingsboard-pg-postgresql-headless.thingsboard-pe.svc.cluster.local:5432/thingsboard 
           # - name: TB_LICENSE_SECRET
           #   valueFrom:
           #     secretKeyRef:
