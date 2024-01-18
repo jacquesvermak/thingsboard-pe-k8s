@@ -17,7 +17,7 @@
 global:
   image:
     server: docker.io
-    tag: "3.4.3PE"
+    tag: "3.5.1PE"
     pullSecrets: []
     pullPolicy: Always
   jsonLogs: false
@@ -270,11 +270,11 @@ postgresql-ha:
     replicaCount: 1
     username: postgres
     password: VF8sjO1yR68W1LxPzwoh
-    repmgrPassword: setplease
+    repmgrPassword: VF8sjO1yR68W1LxPzwoh
   postgresqlImage:
     tag: 12
   pgpool:
-    adminPassword: setplease
+    adminPassword: VF8sjO1yR68W1LxPzwoh
     replicaCount: 1
     useLoadBalancing: false
   pgpoolImage:
