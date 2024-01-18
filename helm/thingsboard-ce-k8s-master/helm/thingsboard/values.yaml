@@ -361,12 +361,23 @@ redis:
     persistence:
       enabled: false
 
+# kafka:
+#   persistence:
+#     enabled: true
+#   zookeeper:
+#     persistence:
+#       enabled: true
 kafka:
-  persistence:
-    enabled: true
+  replicationFactor: 1
+  offsetsTopicReplicationFactor: 1
+  service:
+    ports:
+      client: 9092
   zookeeper:
     persistence:
       enabled: true
+    containerPorts:
+      client: 2181
 
 sql:
   attributes:
