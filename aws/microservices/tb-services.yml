@@ -18,7 +18,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-node
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   serviceName: tb-node
   replicas: 1
@@ -60,7 +60,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-node:3.6.1PE
+          image: thingsboard/tb-pe-node:3.5.1PE
           ports:
             - containerPort: 8080
               name: http
@@ -109,7 +109,13 @@ spec:
             - name: TB_SERVICE_INTEGRATIONS_SUPPORTED
               value: "NONE"
             - name: TB_LICENSE_SECRET
-              value: DUtNSoGiBExZvHAufHEWHmDQ
+              value: OBWS9h3P1bqGpRveNxbfZ58l
+            - name: SPRING_DATASOURCE_USERNAME
+              value: postgres
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: VF8sjO1yR68W1LxPzwoh
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://localhost:5432/thingsboard 
           envFrom:
             - configMapRef:
                 name: tb-node-db-config
@@ -149,7 +155,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-node
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   type: ClusterIP
   selector:
@@ -162,7 +168,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-integration-executor
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   serviceName: tb-integration-executor
   replicas: 1
@@ -204,7 +210,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-integration-executor:3.4.3PE
+          image: thingsboard/tb-pe-integration-executor:3.5.1PE
           ports:
             - containerPort: 8082
               name: http
@@ -265,7 +271,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-integration-executor
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   type: ClusterIP
   selector:
@@ -278,7 +284,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tb-web-ui
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   replicas: 2
   selector:
@@ -304,7 +310,7 @@ spec:
       containers:
       - name: server
         imagePullPolicy: Always
-        image: thingsboard/tb-pe-web-ui:3.4.3PE
+        image: thingsboard/tb-pe-web-ui:3.5.1PE
         ports:
         - containerPort: 8080
           name: http
@@ -344,7 +350,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-web-ui
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   type: ClusterIP
   selector:
@@ -357,7 +363,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tb-js-executor
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   replicas: 5
   selector:
@@ -373,7 +379,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-js-executor:3.4.3PE
+          image: thingsboard/tb-pe-js-executor:3.5.1PE
           resources:
             limits:
               cpu: "100m"
@@ -405,7 +411,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tb-web-report
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   replicas: 1
   selector:
@@ -419,7 +425,7 @@ spec:
       containers:
         - name: server
           imagePullPolicy: Always
-          image: thingsboard/tb-pe-web-report:3.4.3PE
+          image: thingsboard/tb-pe-web-report:3.5.1PE
           resources:
             limits:
               cpu: "100m"
@@ -460,7 +466,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tb-web-report
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   type: ClusterIP
   selector:
