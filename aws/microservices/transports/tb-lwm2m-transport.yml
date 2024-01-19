@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-lwm2m-transport-config
-  namespace: thingsboard
+  namespace: thingsboard-pe
   labels:
     name: tb-lwm2m-transport-config
 data:

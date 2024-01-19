@@ -18,7 +18,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tb-http-transport-config
-  namespace: thingsboard
+  namespace: thingsboard-pe
   labels:
     name: tb-http-transport-config
 data:
@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-http-transport
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   serviceName: "tb-http-transport"
   podManagementPolicy: Parallel

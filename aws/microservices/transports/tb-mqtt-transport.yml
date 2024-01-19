@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: tb-mqtt-transport
-  namespace: thingsboard
+  namespace: thingsboard-pe
 spec:
   serviceName: "tb-mqtt-transport"
   podManagementPolicy: Parallel
